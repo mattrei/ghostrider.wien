@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Simple demo – Tangram</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="lib/leaflet/leaflet-routing-machine.css" />
+
+    <style>
+        body {
+            margin: 0px;
+            border: 0px;
+            padding: 0px;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <script src="https://mapzen.com/tangram/0.1/tangram.min.js"></script>
+    <script src="lib/leaflet/leaflet-routing-machine.js"></script>
+    
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/d3layer.js"></script>
+    <script src="lib/leaflet/lrm-valhalla.js"></script>
+    
+    <script src="anim.js"></script>
+
+    <script>
+      
+        var map = L.map('map', { zoomControl:false });
+
+        var layer = Tangram.leafletLayer({
+            scene: 'scene.yaml',
+            attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
+        });
+
+        layer.addTo(map);
+     /* L.tileLayer('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
+        maxZoom: 18
+      }).addTo(map);
+*/
+        map.setView([40.70531887544228, -74.00976419448853], 15);
+      
+      var wps = [
+        L.latLng(57.74, 11.94),
+        L.latLng(57.6792, 11.949)
+      ];
+      
+      var rr = L.Routing.control({
+        waypoints: wps,
+        geocoder: null,
+        transitemode: 'bicycle',
+      //  router: L.Routing.valhalla('valhalla-t_16n1c','auto'),
+       // router: L.Routing.OSRM
+        //valhalla-3IMakjA
+        //router: L.Routing.valhalla('valhalla-3IMakjA','auto'),
+        //formatter: new L.Routing.Valhalla.Formatter(),
+      }).addTo(map);
+      
+      rr.on('routesfound', function(e) {
+        console.log('found');
+        console.log(e.routes);
+
+
+        buildD3Animation(e.routes[0]);
+
+        
+      });
+      
+      //var router = L.Routing.control.getRouter();
+      //console.log(router);
+
+    </script>
+
+  </body>
+</html>
