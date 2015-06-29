@@ -20,6 +20,34 @@
             width: 100%;
             position: absolute;
         }
+            svg {
+        position: relative;
+    }
+    .travelMarker {
+        fill: yellow;
+        opacity: 0.75;
+    }
+    .waypoints {
+        fill: black;
+        opacity: 0;
+    }
+}
+.drinks {
+    stroke: black;
+    fill: red;
+}
+.lineConnect {
+    fill: none;
+    stroke: black;
+    opacity: 1;
+}
+.locnames {
+    fill: black;
+    text-shadow: 1px 1px 1px #FFF, 3px 3px 5px #000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
 
     </style>
   </head>
@@ -31,11 +59,13 @@
     <script src="https://mapzen.com/tangram/0.1/tangram.min.js"></script>
     <script src="lib/leaflet/leaflet-routing-machine.js"></script>
     
-    <script src="lib/d3/d3.js"></script>
+<!--    <script src="lib/p5/p5.js"></script>-->
+      <script src="lib/d3/d3.js"></script>
     <script src="lib/d3layer.js"></script>
     <script src="lib/leaflet/lrm-valhalla.js"></script>
     
     <script src="anim.js"></script>
+      <script src="draw.js"></script>
 
     <script>
       
@@ -71,13 +101,7 @@
       }).addTo(map);
       
       rr.on('routesfound', function(e) {
-        console.log('found');
-        console.log(e.routes);
-
-
         buildD3Animation(e.routes[0]);
-
-        
       });
       
       //var router = L.Routing.control.getRouter();
