@@ -59,31 +59,28 @@
     <script src="https://mapzen.com/tangram/0.1/tangram.min.js"></script>
     <script src="lib/leaflet/leaflet-routing-machine.js"></script>
     
-<!--    <script src="lib/p5/p5.js"></script>-->
-      <script src="lib/d3/d3.js"></script>
+    <script src="lib/p5/p5.js"></script>
+    <script src="lib/p5/addons/p5.dom.js"></script>
+    <script src="lib/d3/d3.js"></script>
     <script src="lib/d3layer.js"></script>
     <script src="lib/leaflet/lrm-valhalla.js"></script>
+      
+      <script src="p5canvaslayer.js"></script>
     
-    <script src="anim.js"></script>
       <script src="draw.js"></script>
 
     <script>
-      
+      /*
         var map = L.map('map', { zoomControl:false });
-
         var layer = Tangram.leafletLayer({
             scene: 'scene.yaml',
             attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
         });
 
         layer.addTo(map);
-     /* L.tileLayer('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
-        maxZoom: 18
-      }).addTo(map);
-*/
         map.setView([40.70531887544228, -74.00976419448853], 15);
-      
+        */
+      /*
       var wps = [
         L.latLng(57.74, 11.94),
         L.latLng(57.6792, 11.949)
@@ -103,6 +100,7 @@
       rr.on('routesfound', function(e) {
         buildD3Animation(e.routes[0]);
       });
+      */
       
       //var router = L.Routing.control.getRouter();
       //console.log(router);
