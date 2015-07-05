@@ -1,0 +1,22 @@
+{
+  "name": "ghostrider.wien",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mattrei/ghostrider.wien",
+  "authors": [
+    "mat <matthias.treitler@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet-routing-machine": "~2.3.0",
+    "leaflet": "~0.7.3",
+    "pixi.js": "~3.0.7",
+    "gsap": "~1.17.0"
+  }
+}
