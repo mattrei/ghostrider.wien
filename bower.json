@@ -17,6 +17,7 @@
     "leaflet-routing-machine": "~2.3.0",
     "leaflet": "~0.7.3",
     "pixi.js": "~3.0.7",
-    "gsap": "~1.17.0"
+    "gsap": "~1.17.0",
+    "leaflet-control-geocoder": "~1.2.1"
   }
 }
